@@ -37,38 +37,78 @@ Before you begin, ensure you have the following installed:
 1️⃣ Clone the repository:  
    ```bash
    git clone https://github.com/princeyadavv/FundSight.git
-   cd fundsight
+   cd FundSight
    ```
 
-2️⃣ Install dependencies for the frontend:  
+2️⃣ Install all dependencies (monorepo setup):  
    ```bash
-   cd frontend
    npm install
    ```
 
-3️⃣ Install dependencies for the backend:  
-   ```bash
-   cd ../backend
-   npm install
-   ```
+   This will install dependencies for both the frontend and backend workspaces automatically.
 
 ---
 
 ## ▶️ **Running the Application**  
 
+### **Using Monorepo Commands (Recommended)**
+
+🚀 **Run both Frontend & Backend in development mode:**  
+```bash
+npm run dev
+```
+
+🎯 **Run only the Backend:**  
+```bash
+npm run dev:backend
+```
+
+🎯 **Run only the Frontend:**  
+```bash
+npm run dev:frontend
+```
+
+### **Alternative: Running Individually**
+
 💡 **Start the Backend:**  
 ```bash
 cd backend
-npm start
+npm run dev
 ```
 
 💡 **Start the Frontend:**  
 ```bash
-cd frontend
+cd Frontend
 npm run dev
 ```
 
 Once both services are running, visit **`http://localhost:5173/`** (or the port Vite provides) to explore FundSight!  
+
+---
+
+## 🏗️ **Monorepo Structure**
+
+This project uses **npm workspaces** for efficient monorepo management:
+
+```
+fundsight/
+├── package.json          # Root package with workspace configuration
+├── backend/              # Backend API (@fundsight/backend)
+│   ├── package.json
+│   ├── server.js
+│   └── ...
+├── Frontend/             # Frontend app (@fundsight/frontend)
+│   ├── package.json
+│   ├── vite.config.js
+│   └── ...
+└── node_modules/         # Shared dependencies
+```
+
+### **Benefits:**
+- ✅ Single `npm install` for all packages
+- ✅ Shared dependencies across workspace
+- ✅ Centralized scripts management
+- ✅ Easier dependency version management
 
 ---
 
